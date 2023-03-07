@@ -22,10 +22,7 @@ namespace Sistema_de_deudas
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'deudasDataSet1.Sistema_de_Deudas' Puede moverla o quitarla según sea necesario.
-            this.sistema_de_DeudasTableAdapter.Fill(this.deudasDataSet1.Sistema_de_Deudas);
-
-
-
+            //this.sistema_de_DeudasTableAdapter.Fill(this.deudasDataSet1.Sistema_de_Deudas);
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -37,10 +34,10 @@ namespace Sistema_de_deudas
             String Detalles = txtDetalle.Text;
             String Monto = txtMonto.Text;
 
-
-            SqlConnection connection = new SqlConnection("server=JMGAMER15\\SQLEXPRESS; database=Deudas; integrated security=true");
+            var conn = Properties.Settings.Default.TransporteMinyetyConnectionString;
+            SqlConnection connection = new SqlConnection(conn);
             connection.Open();
-            String codigo2 = "insert into Sistema_de_Deudas(Cedula,Nombre,Apellidos,Numero,Detalles,Monto) values('" + Cedula + "','" + Nombre + "','" + Apellido + "','" + Numero + "','" + Detalles + "','" + Monto + "')";
+            String codigo2 = "insert into Deudas(Cedula,Nombre,Apellidos,Telefono,Detalles,Monto) values('" + Cedula + "','" + Nombre + "','" + Apellido + "','" + Numero + "','" + Detalles + "','" + Monto + "')";
             SqlCommand comando2 = new SqlCommand(codigo2, connection);
             SqlDataReader reader3 = comando2.ExecuteReader();
             dataGridView1.Refresh();
