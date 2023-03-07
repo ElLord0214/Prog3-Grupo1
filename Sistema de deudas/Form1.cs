@@ -22,7 +22,7 @@ namespace Sistema_de_deudas
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'deudasDataSet1.Sistema_de_Deudas' Puede moverla o quitarla según sea necesario.
-            this.sistema_de_DeudasTableAdapter.Fill(this.deudasDataSet1.Sistema_de_Deudas);
+            //this.sistema_de_DeudasTableAdapter.Fill(this.deudasDataSet1.Sistema_de_Deudas);
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
