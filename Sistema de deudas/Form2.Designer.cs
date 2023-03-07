@@ -30,12 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cedulaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellidosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.numeroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.detallesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.montoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sistemadeDeudasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.transporteMinyetyDataSet = new Sistema_de_deudas.TransporteMinyetyDataSet();
             this.label6 = new System.Windows.Forms.Label();
@@ -53,9 +47,19 @@
             this.sistema_de_DeudasTableAdapter = new Sistema_de_deudas.TransporteMinyetyDataSetTableAdapters.Sistema_de_DeudasTableAdapter();
             this.btnCerrar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.transporteMinyetyDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.sistemadeDeudasBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.cedulaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellidosDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numeroDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.detallesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.montoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemadeDeudasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.transporteMinyetyDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transporteMinyetyDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemadeDeudasBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -69,47 +73,11 @@
             this.numeroDataGridViewTextBoxColumn,
             this.detallesDataGridViewTextBoxColumn,
             this.montoDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.sistemadeDeudasBindingSource;
+            this.dataGridView1.DataSource = this.sistemadeDeudasBindingSource1;
             this.dataGridView1.Location = new System.Drawing.Point(296, 18);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(543, 415);
             this.dataGridView1.TabIndex = 16;
-            // 
-            // cedulaDataGridViewTextBoxColumn
-            // 
-            this.cedulaDataGridViewTextBoxColumn.DataPropertyName = "Cedula";
-            this.cedulaDataGridViewTextBoxColumn.HeaderText = "Cedula";
-            this.cedulaDataGridViewTextBoxColumn.Name = "cedulaDataGridViewTextBoxColumn";
-            // 
-            // nombreDataGridViewTextBoxColumn
-            // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            // 
-            // apellidosDataGridViewTextBoxColumn
-            // 
-            this.apellidosDataGridViewTextBoxColumn.DataPropertyName = "Apellidos";
-            this.apellidosDataGridViewTextBoxColumn.HeaderText = "Apellidos";
-            this.apellidosDataGridViewTextBoxColumn.Name = "apellidosDataGridViewTextBoxColumn";
-            // 
-            // numeroDataGridViewTextBoxColumn
-            // 
-            this.numeroDataGridViewTextBoxColumn.DataPropertyName = "Numero";
-            this.numeroDataGridViewTextBoxColumn.HeaderText = "Numero";
-            this.numeroDataGridViewTextBoxColumn.Name = "numeroDataGridViewTextBoxColumn";
-            // 
-            // detallesDataGridViewTextBoxColumn
-            // 
-            this.detallesDataGridViewTextBoxColumn.DataPropertyName = "Detalles";
-            this.detallesDataGridViewTextBoxColumn.HeaderText = "Detalles";
-            this.detallesDataGridViewTextBoxColumn.Name = "detallesDataGridViewTextBoxColumn";
-            // 
-            // montoDataGridViewTextBoxColumn
-            // 
-            this.montoDataGridViewTextBoxColumn.DataPropertyName = "Monto";
-            this.montoDataGridViewTextBoxColumn.HeaderText = "Monto";
-            this.montoDataGridViewTextBoxColumn.Name = "montoDataGridViewTextBoxColumn";
             // 
             // sistemadeDeudasBindingSource
             // 
@@ -242,6 +210,52 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // transporteMinyetyDataSetBindingSource
+            // 
+            this.transporteMinyetyDataSetBindingSource.DataSource = this.transporteMinyetyDataSet;
+            this.transporteMinyetyDataSetBindingSource.Position = 0;
+            // 
+            // sistemadeDeudasBindingSource1
+            // 
+            this.sistemadeDeudasBindingSource1.DataMember = "Sistema_de_Deudas";
+            this.sistemadeDeudasBindingSource1.DataSource = this.transporteMinyetyDataSet;
+            // 
+            // cedulaDataGridViewTextBoxColumn
+            // 
+            this.cedulaDataGridViewTextBoxColumn.DataPropertyName = "Cedula";
+            this.cedulaDataGridViewTextBoxColumn.HeaderText = "Cedula";
+            this.cedulaDataGridViewTextBoxColumn.Name = "cedulaDataGridViewTextBoxColumn";
+            // 
+            // nombreDataGridViewTextBoxColumn
+            // 
+            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            // 
+            // apellidosDataGridViewTextBoxColumn
+            // 
+            this.apellidosDataGridViewTextBoxColumn.DataPropertyName = "Apellidos";
+            this.apellidosDataGridViewTextBoxColumn.HeaderText = "Apellidos";
+            this.apellidosDataGridViewTextBoxColumn.Name = "apellidosDataGridViewTextBoxColumn";
+            // 
+            // numeroDataGridViewTextBoxColumn
+            // 
+            this.numeroDataGridViewTextBoxColumn.DataPropertyName = "Numero";
+            this.numeroDataGridViewTextBoxColumn.HeaderText = "Numero";
+            this.numeroDataGridViewTextBoxColumn.Name = "numeroDataGridViewTextBoxColumn";
+            // 
+            // detallesDataGridViewTextBoxColumn
+            // 
+            this.detallesDataGridViewTextBoxColumn.DataPropertyName = "Detalles";
+            this.detallesDataGridViewTextBoxColumn.HeaderText = "Detalles";
+            this.detallesDataGridViewTextBoxColumn.Name = "detallesDataGridViewTextBoxColumn";
+            // 
+            // montoDataGridViewTextBoxColumn
+            // 
+            this.montoDataGridViewTextBoxColumn.DataPropertyName = "Monto";
+            this.montoDataGridViewTextBoxColumn.HeaderText = "Monto";
+            this.montoDataGridViewTextBoxColumn.Name = "montoDataGridViewTextBoxColumn";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -268,6 +282,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemadeDeudasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.transporteMinyetyDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transporteMinyetyDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.sistemadeDeudasBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,13 +307,15 @@
         private TransporteMinyetyDataSet transporteMinyetyDataSet;
         private System.Windows.Forms.BindingSource sistemadeDeudasBindingSource;
         private TransporteMinyetyDataSetTableAdapters.Sistema_de_DeudasTableAdapter sistema_de_DeudasTableAdapter;
+        private System.Windows.Forms.Button btnCerrar;
+        private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.DataGridViewTextBoxColumn cedulaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellidosDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn numeroDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn detallesDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn montoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnCerrar;
-        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.BindingSource sistemadeDeudasBindingSource1;
+        private System.Windows.Forms.BindingSource transporteMinyetyDataSetBindingSource;
     }
 }
