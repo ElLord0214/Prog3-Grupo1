@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Configuration;
+using Sistema_de_deudas.Login;
 
 namespace Sistema_de_deudas
 {
@@ -17,7 +18,10 @@ namespace Sistema_de_deudas
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+
+            //Application.Run(new Form1());
+            Application.Run(new Login.Login());
+
         }
     }
 }
