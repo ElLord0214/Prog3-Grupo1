@@ -207,5 +207,10 @@ namespace Sistema_de_deudas
         {
             this.Close();
         }
+
+        private void verDeudasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

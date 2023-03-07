@@ -54,9 +54,14 @@
             this.btndelete = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saldarDeudasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cerrarSesionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemadeDeudasBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deudasDataSet1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnGuardar
@@ -82,7 +87,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(18, 329);
+            this.label6.Location = new System.Drawing.Point(9, 347);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(37, 13);
             this.label6.TabIndex = 24;
@@ -91,7 +96,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(19, 182);
+            this.label4.Location = new System.Drawing.Point(10, 200);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(104, 13);
             this.label4.TabIndex = 25;
@@ -100,7 +105,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 77);
+            this.label2.Location = new System.Drawing.Point(10, 95);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 26;
@@ -110,7 +115,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 232);
+            this.label5.Location = new System.Drawing.Point(10, 250);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(104, 13);
             this.label5.TabIndex = 27;
@@ -119,7 +124,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(19, 126);
+            this.label3.Location = new System.Drawing.Point(10, 144);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(49, 13);
             this.label3.TabIndex = 28;
@@ -128,7 +133,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 26);
+            this.label1.Location = new System.Drawing.Point(10, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 29;
@@ -136,28 +141,28 @@
             // 
             // txtNumero
             // 
-            this.txtNumero.Location = new System.Drawing.Point(21, 198);
+            this.txtNumero.Location = new System.Drawing.Point(12, 216);
             this.txtNumero.Name = "txtNumero";
             this.txtNumero.Size = new System.Drawing.Size(177, 20);
             this.txtNumero.TabIndex = 21;
             // 
             // txtApellido
             // 
-            this.txtApellido.Location = new System.Drawing.Point(21, 142);
+            this.txtApellido.Location = new System.Drawing.Point(12, 160);
             this.txtApellido.Name = "txtApellido";
             this.txtApellido.Size = new System.Drawing.Size(177, 20);
             this.txtApellido.TabIndex = 18;
             // 
             // txtMonto
             // 
-            this.txtMonto.Location = new System.Drawing.Point(21, 345);
+            this.txtMonto.Location = new System.Drawing.Point(12, 363);
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(177, 20);
             this.txtMonto.TabIndex = 22;
             // 
             // txtDetalle
             // 
-            this.txtDetalle.Location = new System.Drawing.Point(21, 248);
+            this.txtDetalle.Location = new System.Drawing.Point(12, 266);
             this.txtDetalle.Multiline = true;
             this.txtDetalle.Name = "txtDetalle";
             this.txtDetalle.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -166,14 +171,14 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(21, 93);
+            this.txtNombre.Location = new System.Drawing.Point(12, 111);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(177, 20);
             this.txtNombre.TabIndex = 23;
             // 
             // txtCedula
             // 
-            this.txtCedula.Location = new System.Drawing.Point(21, 42);
+            this.txtCedula.Location = new System.Drawing.Point(12, 60);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(177, 20);
             this.txtCedula.TabIndex = 20;
@@ -183,10 +188,10 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(292, 12);
+            this.dataGridView1.Location = new System.Drawing.Point(292, 27);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(545, 486);
+            this.dataGridView1.Size = new System.Drawing.Size(545, 471);
             this.dataGridView1.TabIndex = 33;
             // 
             // sistemadeDeudasBindingSource
@@ -217,7 +222,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(19, 9);
+            this.label7.Location = new System.Drawing.Point(9, 44);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(204, 13);
             this.label7.TabIndex = 36;
@@ -226,7 +231,7 @@
             // 
             // txtiddelete
             // 
-            this.txtiddelete.Location = new System.Drawing.Point(21, 27);
+            this.txtiddelete.Location = new System.Drawing.Point(11, 62);
             this.txtiddelete.Name = "txtiddelete";
             this.txtiddelete.Size = new System.Drawing.Size(177, 20);
             this.txtiddelete.TabIndex = 35;
@@ -238,7 +243,7 @@
             // 
             // btndelete
             // 
-            this.btndelete.Location = new System.Drawing.Point(21, 51);
+            this.btndelete.Location = new System.Drawing.Point(11, 86);
             this.btndelete.Name = "btndelete";
             this.btndelete.Size = new System.Drawing.Size(75, 23);
             this.btndelete.TabIndex = 37;
@@ -249,7 +254,7 @@
             // 
             // btnOK
             // 
-            this.btnOK.Location = new System.Drawing.Point(123, 51);
+            this.btnOK.Location = new System.Drawing.Point(113, 86);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 38;
@@ -260,7 +265,7 @@
             // 
             // btnBuscar
             // 
-            this.btnBuscar.Location = new System.Drawing.Point(204, 25);
+            this.btnBuscar.Location = new System.Drawing.Point(194, 60);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 39;
@@ -268,6 +273,37 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Visible = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(849, 24);
+            this.menuStrip1.TabIndex = 40;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // menuToolStripMenuItem
+            // 
+            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saldarDeudasToolStripMenuItem,
+            this.cerrarSesionToolStripMenuItem});
+            this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(50, 20);
+            this.menuToolStripMenuItem.Text = "Menu";
+            // 
+            // saldarDeudasToolStripMenuItem
+            // 
+            this.saldarDeudasToolStripMenuItem.Name = "saldarDeudasToolStripMenuItem";
+            this.saldarDeudasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saldarDeudasToolStripMenuItem.Text = "Saldar Deudas";
+            // 
+            // cerrarSesionToolStripMenuItem
+            // 
+            this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
             // 
             // Form1
             // 
@@ -295,12 +331,16 @@
             this.Controls.Add(this.txtDetalle);
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.txtCedula);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Sistema de deudas (Registro)";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemadeDeudasBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deudasDataSet1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -333,6 +373,10 @@
         private System.Windows.Forms.Button btndelete;
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saldarDeudasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cerrarSesionToolStripMenuItem;
     }
 }
 
