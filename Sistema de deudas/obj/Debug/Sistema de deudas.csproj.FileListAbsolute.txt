@@ -3,11 +3,9 @@ C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\bin\Debug\Si
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\bin\Debug\Sistema de deudas.pdb
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.csproj.AssemblyReference.cache
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.csproj.SuggestedBindingRedirects.cache
-C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema_de_deudas.Form2.resources
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema_de_deudas.Properties.Resources.resources
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.csproj.GenerateResource.cache
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.csproj.CoreCompileInputs.cache
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.exe
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.pdb
-C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema_de_deudas.Form3.resources
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema_de_deudas.Form1.resources
