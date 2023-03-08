@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sistema_de_deudas.Login;
 
 namespace Sistema_de_deudas
 {
@@ -18,6 +19,7 @@ namespace Sistema_de_deudas
         {
             InitializeComponent();
         }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -188,19 +190,13 @@ namespace Sistema_de_deudas
             String codigo3 = "Select * from Deudas where ID='" + id + "' ";
             SqlCommand comando3 = new SqlCommand(codigo3, connection);
             SqlDataReader reader = comando3.ExecuteReader();
-            connection.Close();
-            connection.Open();
+            reader.Close();
             SqlDataAdapter da1 = new SqlDataAdapter(comando3);
             DataTable dt1 = new DataTable();
             da1.Fill(dt1);
             dataGridView1.DataSource = dt1;
             connection.Close();
             }
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -211,6 +207,11 @@ namespace Sistema_de_deudas
         private void verDeudasToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Login.Login.mainForm.Show();
         }
     }
 }
