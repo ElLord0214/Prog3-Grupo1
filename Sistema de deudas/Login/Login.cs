@@ -22,6 +22,7 @@ namespace Sistema_de_deudas.Login
 
         private void RegisterLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            LimpiarInputs();
             cambiarPantalla(new Registro());
         }
 
@@ -35,12 +36,13 @@ namespace Sistema_de_deudas.Login
             if (nUsuario.Text.Trim().Length > 0 
                 && contra.Text.Trim().Length > 0) {
                 //Si los campos no estan vacios, deben tener letras no espacios vacios
-                usuario = new Usuario(nUsuario.Text, contra.Text);
+                usuario = new Usuario(nUsuario.Text.Trim(), contra.Text.Trim());
                 login = new InicioSesion();
 
             }else
             {
                 MessageBox.Show("Todos los campos son requeridos", "Error");
+                LimpiarInputs();
                 return;
             }
 

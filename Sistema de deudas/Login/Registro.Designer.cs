@@ -44,9 +44,10 @@
             // 
             this.RegisterLink.AutoSize = true;
             this.RegisterLink.LinkColor = System.Drawing.Color.Blue;
-            this.RegisterLink.Location = new System.Drawing.Point(230, 475);
+            this.RegisterLink.Location = new System.Drawing.Point(172, 386);
+            this.RegisterLink.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.RegisterLink.Name = "RegisterLink";
-            this.RegisterLink.Size = new System.Drawing.Size(87, 16);
+            this.RegisterLink.Size = new System.Drawing.Size(70, 13);
             this.RegisterLink.TabIndex = 16;
             this.RegisterLink.TabStop = true;
             this.RegisterLink.Text = "Iniciar Sesión";
@@ -57,9 +58,10 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.8F);
-            this.label4.Location = new System.Drawing.Point(97, 473);
+            this.label4.Location = new System.Drawing.Point(73, 384);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(124, 18);
+            this.label4.Size = new System.Drawing.Size(105, 15);
             this.label4.TabIndex = 15;
             this.label4.Text = "¿Ya tiene cuenta?";
             // 
@@ -67,9 +69,10 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 12.8F);
-            this.label2.Location = new System.Drawing.Point(154, 184);
+            this.label2.Location = new System.Drawing.Point(116, 150);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(111, 25);
+            this.label2.Size = new System.Drawing.Size(90, 20);
             this.label2.TabIndex = 14;
             this.label2.Text = "Contraseña";
             // 
@@ -77,18 +80,20 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Times New Roman", 12.8F);
-            this.label3.Location = new System.Drawing.Point(122, 93);
+            this.label3.Location = new System.Drawing.Point(92, 76);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(181, 25);
+            this.label3.Size = new System.Drawing.Size(147, 20);
             this.label3.TabIndex = 13;
             this.label3.Text = "Nombre de usuario";
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Times New Roman", 13.25F);
-            this.button1.Location = new System.Drawing.Point(71, 402);
+            this.button1.Location = new System.Drawing.Point(53, 327);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(287, 43);
+            this.button1.Size = new System.Drawing.Size(215, 35);
             this.button1.TabIndex = 4;
             this.button1.Text = "Registrarse";
             this.button1.UseVisualStyleBackColor = true;
@@ -97,18 +102,20 @@
             // contra
             // 
             this.contra.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
-            this.contra.Location = new System.Drawing.Point(71, 213);
+            this.contra.Location = new System.Drawing.Point(53, 173);
+            this.contra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.contra.Name = "contra";
-            this.contra.Size = new System.Drawing.Size(287, 34);
+            this.contra.Size = new System.Drawing.Size(216, 28);
             this.contra.TabIndex = 2;
             this.contra.UseSystemPasswordChar = true;
             // 
             // nUsuario
             // 
             this.nUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
-            this.nUsuario.Location = new System.Drawing.Point(71, 122);
+            this.nUsuario.Location = new System.Drawing.Point(53, 99);
+            this.nUsuario.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.nUsuario.Name = "nUsuario";
-            this.nUsuario.Size = new System.Drawing.Size(287, 34);
+            this.nUsuario.Size = new System.Drawing.Size(216, 28);
             this.nUsuario.TabIndex = 1;
             // 
             // label1
@@ -116,9 +123,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 18.8F);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(153, 25);
+            this.label1.Location = new System.Drawing.Point(115, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(121, 36);
+            this.label1.Size = new System.Drawing.Size(99, 29);
             this.label1.TabIndex = 9;
             this.label1.Text = "Registro";
             // 
@@ -126,26 +134,28 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Times New Roman", 12.8F);
-            this.label5.Location = new System.Drawing.Point(116, 280);
+            this.label5.Location = new System.Drawing.Point(87, 228);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(201, 25);
+            this.label5.Size = new System.Drawing.Size(165, 20);
             this.label5.TabIndex = 18;
             this.label5.Text = "Confirmar contraseña";
             // 
             // ConfirmContra
             // 
             this.ConfirmContra.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F);
-            this.ConfirmContra.Location = new System.Drawing.Point(71, 308);
+            this.ConfirmContra.Location = new System.Drawing.Point(53, 250);
+            this.ConfirmContra.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ConfirmContra.Name = "ConfirmContra";
-            this.ConfirmContra.Size = new System.Drawing.Size(287, 34);
+            this.ConfirmContra.Size = new System.Drawing.Size(216, 28);
             this.ConfirmContra.TabIndex = 3;
             this.ConfirmContra.UseSystemPasswordChar = true;
             // 
             // Registro
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(440, 534);
+            this.ClientSize = new System.Drawing.Size(330, 434);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.ConfirmContra);
             this.Controls.Add(this.RegisterLink);
@@ -156,8 +166,10 @@
             this.Controls.Add(this.contra);
             this.Controls.Add(this.nUsuario);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Registro";
             this.Text = "Registro";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Registro_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -65,27 +65,48 @@ namespace Sistema_de_deudas.Login
         public mensaje RegistrarUsuario(Usuario user)
         {
 
-            bool validado = false;
-            string mensaje = "";
+            bool validado;
+            string mensaje;
             Conexion conn = Conexion.getConexion();
             try {
                 conn.sqlConn.Open();
-                string query = $"INSERT INTO Login(Usuario, Password) VALUES ('{user.nombreUsuario}','{user.contra}');";
+                string query = $"SELECT count(*) as numUsuarios FROM Login WHERE Usuario = '{user.nombreUsuario}';";
                 SqlCommand command = new SqlCommand(query, conn.sqlConn);
 
-                int filasAfectadas = command.ExecuteNonQuery();
+                SqlDataReader datos = command.ExecuteReader();
+                datos.Read();
+                int numUsuarios = (int)datos["numUsuarios"];
+                datos.Close();
 
-                if (filasAfectadas > 0)
-                {
-                    validado = true;
-                    mensaje = "Usuario agregado correctamente";
-                }else
+
+                Console.WriteLine($"Dato: {numUsuarios}");
+                if (numUsuarios > 0)
                 {
                     validado = false;
-                    mensaje = "Error inesperado: Usuario no agregado correctamente";
+                    mensaje = "Ese nombre de usuario ya existe";
+                }else
+                {
+                    query = $"INSERT INTO Login(Usuario, Password) VALUES ('{user.nombreUsuario}','{user.contra}');";
+                    command = new SqlCommand(query, conn.sqlConn);
+
+                    int filasAfectadas = command.ExecuteNonQuery();
+
+                    if (filasAfectadas > 0)
+                    {
+                        validado = true;
+                        mensaje = "Usuario creado correctamente";
+                    }else
+                    {
+                        validado = false;
+                        mensaje = "Error: No se creo la cuenta";
+                    }
                 }
+                
+                
+
 
             } catch(Exception ex) {
+                Console.WriteLine($"Error: {ex.Message}");
                 validado = false;
                 mensaje = "Error inesperado: Usuario no agregado correctamente";
             }

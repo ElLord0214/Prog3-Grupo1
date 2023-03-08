@@ -53,7 +53,7 @@ namespace Sistema_de_deudas.Login
                 // Y si y solo si las contraseñas son iguales
                 if (contra.Text == ConfirmContra.Text)
                 {
-                    usuario = new Usuario(nUsuario.Text, contra.Text);
+                    usuario = new Usuario(nUsuario.Text.Trim(), contra.Text.Trim());
                     login = new InicioSesion();
                 }else
                 {
@@ -65,6 +65,7 @@ namespace Sistema_de_deudas.Login
             else
             {
                 MessageBox.Show("Todos los campos son requeridos", "Error");
+                LimpiarInputs();
                 return;
             }
 
@@ -83,6 +84,11 @@ namespace Sistema_de_deudas.Login
                 LimpiarContra();
             }
 
+        }
+
+        private void Registro_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Login.mainForm.Close();
         }
     }
 }
