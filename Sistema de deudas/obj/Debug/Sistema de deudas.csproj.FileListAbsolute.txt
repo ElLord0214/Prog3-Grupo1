@@ -23,3 +23,4 @@ C:\Users\Rayner\OneDrive\Documentos\ITLA - 7mo Cuatrimestre\Programación III\Pr
 C:\Users\Rayner\OneDrive\Documentos\ITLA - 7mo Cuatrimestre\Programación III\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.exe
 C:\Users\Rayner\OneDrive\Documentos\ITLA - 7mo Cuatrimestre\Programación III\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.pdb
 C:\Users\Rayner\OneDrive\Documentos\ITLA - 7mo Cuatrimestre\Programación III\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema_de_deudas.Login.Login.resources
+C:\Users\Rayner\OneDrive\Documentos\ITLA - 7mo Cuatrimestre\Programación III\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema_de_deudas.Login.Registro.resources

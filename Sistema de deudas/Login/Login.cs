@@ -10,40 +10,52 @@ using System.Windows.Forms;
 
 namespace Sistema_de_deudas.Login
 {
-    public partial class Login : Form
+    public partial class Login: Form
     {
         public Login()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
+        public static Login mainForm;
 
-        }
 
         private void RegisterLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //this.Close();
-            MessageBox.Show("Funcionalidad no disponible actualmente.");
+            cambiarPantalla(new Registro());
         }
 
         private void IniciarSesion(object sender, EventArgs e)
             // El presionar el boton de inicio de session se ejecuta esta funcion 
         {
-            var usuario = new Usuario(nUsuario.Text, contra.Text);
-            var login = new InicioSesion();
-            
-            //Si la funcion de inicio de sesion retorna true, las credenciales son correctas
-            if (login.iniciarSesion(usuario))
-            {
-                MessageBox.Show("¡Sesión iniciada correctamente!");
-                this.Hide();
-                Form1 fr1 = new Form1();
-                fr1.Show();
+            Usuario usuario;
+            InicioSesion login;
 
+
+            if (nUsuario.Text.Trim().Length > 0 
+                && contra.Text.Trim().Length > 0) {
+                //Si los campos no estan vacios, deben tener letras no espacios vacios
+                usuario = new Usuario(nUsuario.Text, contra.Text);
+                login = new InicioSesion();
+
+            }else
+            {
+                MessageBox.Show("Todos los campos son requeridos", "Error");
+                return;
+            }
+
+
+
+            //Si la funcion de inicio de sesion retorna true en la propiedad valido
+            //, las credenciales son correctas y se permite ingresar
+            mensaje result = login.iniciarSesion(usuario);
+            if (result.valido)
+            {
+                MessageBox.Show(result.message, "Acceso exitoso");
+                cambiarPantalla(new Form1());
+                LimpiarInputs();
             }else {
-                MessageBox.Show("¡Error, Contraseña o nombre de usuario inválido!");
+                MessageBox.Show(result.message, "Error");
                 LimpiarContra();
             }
         }
@@ -53,5 +65,19 @@ namespace Sistema_de_deudas.Login
         {
             contra.Text = "";
         }
+
+        private void LimpiarInputs()
+        // Función para limpiar todas las cajas de texto
+        {
+            nUsuario.Text = "";
+            contra.Text = "";
+        }
+
+        private void cambiarPantalla(Form pantalla)
+        {
+            this.Hide();
+            pantalla.Show();
+        }
+
     }
 }

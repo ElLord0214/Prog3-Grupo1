@@ -1,4 +1,5 @@
-﻿using Sistema_de_deudas.Properties;
+﻿using Microsoft.Win32.SafeHandles;
+using Sistema_de_deudas.Properties;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -14,35 +15,94 @@ namespace Sistema_de_deudas.Login
         // propiedades
         string conn = Settings.Default.TransporteMinyetyConnectionString;
 
-        public bool iniciarSesion(Usuario user)
+        public mensaje iniciarSesion(Usuario user)
         //Esta funcion tiene como objetivo Verificar si las credenciales son correctas para el inicio de sesion de la aplicacion
         {
-            Conexion conn = Conexion.getConexion();
-            conn.sqlConn.Open();
-            var queryUsuario = $"Select Usuario, Password FROM login WHERE Usuario = '{user.nombreUsuario}'";
-            SqlCommand query = new SqlCommand(queryUsuario, conn.sqlConn);
-
-            SqlDataReader datos = query.ExecuteReader();
-
             bool validado = false;
+            string mensaje = "";
+            Conexion conn = Conexion.getConexion();
+            
+            try {
+                conn.sqlConn.Open();
+                var queryUsuario = $"Select Usuario, Password FROM login WHERE Usuario = '{user.nombreUsuario}'";
+                SqlCommand query = new SqlCommand(queryUsuario, conn.sqlConn);
 
+                SqlDataReader datos = query.ExecuteReader();
+                
+                if (!datos.Read())
+                {
+                    validado = false;
+                    mensaje = "¡Error, Contraseña o nombre de usuario inválido!";
+                }
+                else
+                {
+                    if (user.contra == (string)datos["Password"])
+                    {
+                        validado = true;
+                        mensaje = "¡Sesión iniciada correctamente!";
+                    }
+                    else
+                    {
+                        validado = false;
+                        mensaje = "¡Error, Contraseña o nombre de usuario inválido!";
+                    }
+                }
 
-            if (!datos.Read())
+            }
+            catch(Exception ex)
             {
                 validado = false;
-            }else
-            {
-                if (user.contra == (string)datos["Password"])
+                mensaje = "¡Error, ha ocurrido un error inesperado";
+
+                Console.WriteLine(ex.Message);
+            }
+
+
+            conn.sqlConn.Close();
+            return new mensaje(validado, mensaje);
+        }
+
+        public mensaje RegistrarUsuario(Usuario user)
+        {
+
+            bool validado = false;
+            string mensaje = "";
+            Conexion conn = Conexion.getConexion();
+            try {
+                conn.sqlConn.Open();
+                string query = $"INSERT INTO Login(Usuario, Password) VALUES ('{user.nombreUsuario}','{user.contra}');";
+                SqlCommand command = new SqlCommand(query, conn.sqlConn);
+
+                int filasAfectadas = command.ExecuteNonQuery();
+
+                if (filasAfectadas > 0)
                 {
                     validado = true;
+                    mensaje = "Usuario agregado correctamente";
                 }else
                 {
                     validado = false;
+                    mensaje = "Error inesperado: Usuario no agregado correctamente";
                 }
+
+            } catch(Exception ex) {
+                validado = false;
+                mensaje = "Error inesperado: Usuario no agregado correctamente";
             }
 
             conn.sqlConn.Close();
-            return validado;
+            return new mensaje(validado, mensaje);
+        }
+    }
+    public class mensaje {
+        public bool valido;
+        public string message;
+
+        public mensaje(bool valido, string message)
+        {
+            this.valido = valido;
+            this.message = message;
         }
     }
 }
+

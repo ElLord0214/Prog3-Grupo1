@@ -19,8 +19,8 @@ namespace Sistema_de_deudas
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //Application.Run(new Form1());
-            Application.Run(new Login.Login());
+            Login.Login.mainForm = new Login.Login();
+            Application.Run(Login.Login.mainForm);
 
         }
     }

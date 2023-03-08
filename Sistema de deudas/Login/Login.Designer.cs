@@ -73,7 +73,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(287, 43);
             this.button1.TabIndex = 3;
-            this.button1.Text = "Iniciar";
+            this.button1.Text = "Iniciar Sesión";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.IniciarSesion);
             // 
@@ -135,7 +135,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Login";
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
