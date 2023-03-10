@@ -17,12 +17,15 @@ namespace Sistema_de_deudas.Login
             InitializeComponent();
         }
 
+        //Propiedades
         public static Login mainForm;
+
+        //FLag para mostrar la ventana
+        public bool mostrarse = true;
 
 
         private void RegisterLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            LimpiarInputs();
             cambiarPantalla(new Registro());
         }
 
@@ -42,7 +45,6 @@ namespace Sistema_de_deudas.Login
             }else
             {
                 MessageBox.Show("Todos los campos son requeridos", "Error");
-                LimpiarInputs();
                 return;
             }
 
@@ -51,6 +53,8 @@ namespace Sistema_de_deudas.Login
             //Si la funcion de inicio de sesion retorna true en la propiedad valido
             //, las credenciales son correctas y se permite ingresar
             mensaje result = login.iniciarSesion(usuario);
+
+
             if (result.valido)
             {
                 MessageBox.Show(result.message, "Acceso exitoso");
@@ -80,6 +84,5 @@ namespace Sistema_de_deudas.Login
             this.Hide();
             pantalla.Show();
         }
-
     }
 }

@@ -12,8 +12,17 @@ namespace Sistema_de_deudas.Login
         {
             this.nombreUsuario = nombre;
             this.contra = contra;
+            
+        }
+
+        public Usuario(string nombre, string contra, int id)
+        {
+            this.nombreUsuario = nombre;
+            this.contra = contra;
+            this.id = id;   
         }
         public string nombreUsuario { get; set;}
         public string contra { get; set;}
+        public int id { get; set;}
     }
 }

@@ -2,6 +2,9 @@
 using Sistema_de_deudas.Properties;
 using System;
 using System.Collections.Generic;
+using System.CodeDom;
+using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -13,38 +16,58 @@ namespace Sistema_de_deudas.Login
     //Es una clase con las funcionalidades de inicio de sesion, registro y actividades concernientes a la gestion de credenciales
     {
         // propiedades
-        string conn = Settings.Default.TransporteMinyetyConnectionString;
+        const string ERROR_MESSAGE_USER_NOT_ADDED = "Error inesperado: Usuario no agregado correctamente";
 
         public mensaje iniciarSesion(Usuario user)
         //Esta funcion tiene como objetivo Verificar si las credenciales son correctas para el inicio de sesion de la aplicacion
         {
-            bool validado = false;
-            string mensaje = "";
+            bool validado;
+            string mensaje;
+            int ID = 0;
             Conexion conn = Conexion.getConexion();
             
             try {
                 conn.sqlConn.Open();
-                var queryUsuario = $"Select Usuario, Password FROM login WHERE Usuario = '{user.nombreUsuario}'";
+                var queryUsuario = "EXECUTE Log_in @nombre = @userName, @ID = @userID OUTPUT, @pass = @userPass OUTPUT, ";
+                queryUsuario += "@logged = @userLogged OUTPUT;";
                 SqlCommand query = new SqlCommand(queryUsuario, conn.sqlConn);
 
-                SqlDataReader datos = query.ExecuteReader();
-                
-                if (!datos.Read())
+                query.Parameters.Add("@userName", SqlDbType.VarChar, 50);
+                query.Parameters["@userName"].Value = user.nombreUsuario;
+
+                query.Parameters.Add("@userID", SqlDbType.Int);
+                query.Parameters["@userID"].Direction = System.Data.ParameterDirection.Output;
+
+                query.Parameters.Add("@UserPass", SqlDbType.VarChar, 60);
+                query.Parameters["@userPass"].Direction = System.Data.ParameterDirection.Output;
+
+                query.Parameters.Add("@userLogged", SqlDbType.Int);
+                query.Parameters["@userLogged"].Direction = ParameterDirection.Output;
+
+                query.ExecuteNonQuery();
+
+                bool logged = (int)query.Parameters["@userLogged"].Value == 1 ? true : false;
+
+
+                if (!logged)
                 {
                     validado = false;
-                    mensaje = "¡Error, Contraseña o nombre de usuario inválido!";
+                    mensaje = "¡Contraseña o nombre de usuario inválido!";
                 }
                 else
                 {
-                    if (user.contra == (string)datos["Password"])
+                    string password = (string)query.Parameters["@userPass"].Value;
+
+                    if (user.contra == password)
                     {
                         validado = true;
                         mensaje = "¡Sesión iniciada correctamente!";
+                        ID = (int)query.Parameters["@userID"].Value;
                     }
                     else
                     {
                         validado = false;
-                        mensaje = "¡Error, Contraseña o nombre de usuario inválido!";
+                        mensaje = "¡Contraseña o nombre de usuario inválido!";
                     }
                 }
 
@@ -52,77 +75,86 @@ namespace Sistema_de_deudas.Login
             catch(Exception ex)
             {
                 validado = false;
-                mensaje = "¡Error, ha ocurrido un error inesperado";
+                mensaje = "¡ha ocurrido un error inesperado";
 
                 Console.WriteLine(ex.Message);
             }
 
 
             conn.sqlConn.Close();
-            return new mensaje(validado, mensaje);
+            return new mensaje(validado, mensaje, ID);
         }
 
+        
         public mensaje RegistrarUsuario(Usuario user)
         {
-
-            bool validado;
-            string mensaje;
+            bool validado = false;
+            string mensaje = "";
+            int ID = 0;
             Conexion conn = Conexion.getConexion();
             try {
+
                 conn.sqlConn.Open();
-                string query = $"SELECT count(*) as numUsuarios FROM Login WHERE Usuario = '{user.nombreUsuario}';";
+                string query = $"EXECUTE dbo.RegisterUser @Usuario = @username, @password = @pass, @ID = @userID OUTPUT;";
                 SqlCommand command = new SqlCommand(query, conn.sqlConn);
 
-                SqlDataReader datos = command.ExecuteReader();
-                datos.Read();
-                int numUsuarios = (int)datos["numUsuarios"];
-                datos.Close();
+                command.Parameters.Add("@username", System.Data.SqlDbType.VarChar, 50);
+                command.Parameters["@username"].Value = user.nombreUsuario;
 
+                command.Parameters.Add("@pass", System.Data.SqlDbType.VarChar, 60);
+                command.Parameters["@pass"].Value = user.contra;
 
-                Console.WriteLine($"Dato: {numUsuarios}");
-                if (numUsuarios > 0)
+                command.Parameters.Add("@userId", System.Data.SqlDbType.Int);
+                command.Parameters["@userId"].Direction = System.Data.ParameterDirection.Output;
+
+                int filasAfectadas = command.ExecuteNonQuery();
+
+                if (filasAfectadas > 0)
+                {
+                    // datos que seran retornados
+                    validado = true;
+                    mensaje = "Usuario agregado correctamente";
+                    ID = (int)command.Parameters["@userID"].Value;
+                }
+                else
                 {
                     validado = false;
-                    mensaje = "Ese nombre de usuario ya existe";
-                }else
-                {
-                    query = $"INSERT INTO Login(Usuario, Password) VALUES ('{user.nombreUsuario}','{user.contra}');";
-                    command = new SqlCommand(query, conn.sqlConn);
-
-                    int filasAfectadas = command.ExecuteNonQuery();
-
-                    if (filasAfectadas > 0)
-                    {
-                        validado = true;
-                        mensaje = "Usuario creado correctamente";
-                    }else
-                    {
-                        validado = false;
-                        mensaje = "Error: No se creo la cuenta";
-                    }
+                    mensaje = ERROR_MESSAGE_USER_NOT_ADDED;
                 }
-                
-                
 
-
-            } catch(Exception ex) {
-                Console.WriteLine($"Error: {ex.Message}");
+            } catch(SqlException sqlE) {
                 validado = false;
                 mensaje = "Error inesperado: Usuario no agregado correctamente";
+
+                Console.WriteLine(sqlE.Message);
+
+                if (sqlE.Number == 2627)
+                {
+                    mensaje = "¡El nombre de usuario ya existe!";
+                }
+            } catch {
+                validado = false;
+                mensaje = ERROR_MESSAGE_USER_NOT_ADDED;
             }
 
             conn.sqlConn.Close();
-            return new mensaje(validado, mensaje);
+            return new mensaje(validado, mensaje, ID);
         }
     }
     public class mensaje {
         public bool valido;
         public string message;
+        public int idUsuario = 0;
 
         public mensaje(bool valido, string message)
         {
             this.valido = valido;
             this.message = message;
+        }
+
+        public mensaje(bool valido, string message, int idUsuario):this(valido, message)
+        {
+            this.idUsuario = idUsuario;
         }
     }
 }

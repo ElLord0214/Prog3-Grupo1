@@ -21,6 +21,7 @@ namespace Sistema_de_deudas.Login
 
         private void RegisterLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
+            Login.mainForm.mostrarse = true;
             GesPantanllas.cambiarPantalla(this, Login.mainForm);
         }
 
@@ -53,7 +54,7 @@ namespace Sistema_de_deudas.Login
                 // Y si y solo si las contraseñas son iguales
                 if (contra.Text == ConfirmContra.Text)
                 {
-                    usuario = new Usuario(nUsuario.Text.Trim(), contra.Text.Trim());
+                    usuario = new Usuario(nUsuario.Text, contra.Text);
                     login = new InicioSesion();
                 }else
                 {
@@ -65,13 +66,14 @@ namespace Sistema_de_deudas.Login
             else
             {
                 MessageBox.Show("Todos los campos son requeridos", "Error");
-                LimpiarInputs();
                 return;
             }
 
             // Si la propiedad valido del objeto retornado por la funcion registrar
             //es verdadera se accede a la aplicación
             mensaje result = login.RegistrarUsuario(usuario);
+
+
             if (result.valido)
             {
                 MessageBox.Show(result.message, "Acceso exitoso");
@@ -86,9 +88,10 @@ namespace Sistema_de_deudas.Login
 
         }
 
-        private void Registro_FormClosing(object sender, FormClosingEventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
             Login.mainForm.Close();
+            this.Close();
         }
     }
 }
