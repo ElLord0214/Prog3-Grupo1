@@ -69,14 +69,14 @@ namespace Sistema_de_deudas.Login
         private void LimpiarContra()
         // Función para limpiar la caja de texto de la contraseña del formulario
         {
-            contra.Text = "";
+            contra.Clear();
         }
 
         private void LimpiarInputs()
         // Función para limpiar todas las cajas de texto
         {
-            nUsuario.Text = "";
-            contra.Text = "";
+            nUsuario.Clear();
+            contra.Clear();
         }
 
         private void cambiarPantalla(Form pantalla)

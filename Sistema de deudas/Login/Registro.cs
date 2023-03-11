@@ -28,16 +28,16 @@ namespace Sistema_de_deudas.Login
         private void LimpiarContra()
         // Función para limpiar la caja de texto de la contraseña del formulario
         {
-            contra.Text = "";
-            ConfirmContra.Text = "";
+            contra.Clear();
+            ConfirmContra.Clear();
         }
 
         private void LimpiarInputs()
         // Función para limpiar todas las cajas de texto
         {
-            nUsuario.Text = "";
-            contra.Text = "";
-            ConfirmContra.Text = "";
+            nUsuario.Clear();
+            contra.Clear();
+            ConfirmContra.Clear();
         }
 
         private void Registrar(object sender, EventArgs e)
@@ -73,7 +73,7 @@ namespace Sistema_de_deudas.Login
             //es verdadera se accede a la aplicación
             mensaje result = login.RegistrarUsuario(usuario);
 
-
+ 
             if (result.valido)
             {
                 MessageBox.Show(result.message, "Acceso exitoso");
