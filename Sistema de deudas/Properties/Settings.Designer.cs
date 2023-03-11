@@ -26,8 +26,8 @@ namespace Sistema_de_deudas.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=srvtransportes.database.windows.net;Initial Catalog=TransporteMinyety" +
-            ";Persist Security Info=True;User ID=transporteMinAdmin")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=srvtransportes.database.windows.net;Initial Catalog=SistemaDeudas;Use" +
+            "r ID=transporteMinAdmin;Password=TransporteMinyetypsw012@")]
         public string TransporteMinyetyConnectionString {
             get {
                 return ((string)(this["TransporteMinyetyConnectionString"]));

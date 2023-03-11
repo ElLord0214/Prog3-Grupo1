@@ -110,7 +110,6 @@
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 26;
             this.label2.Text = "Nombre";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label5
             // 
@@ -191,6 +190,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(292, 27);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(545, 471);
             this.dataGridView1.TabIndex = 33;
             // 
@@ -276,10 +276,12 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(849, 24);
             this.menuStrip1.TabIndex = 40;
             this.menuStrip1.Text = "menuStrip1";
@@ -296,13 +298,13 @@
             // saldarDeudasToolStripMenuItem
             // 
             this.saldarDeudasToolStripMenuItem.Name = "saldarDeudasToolStripMenuItem";
-            this.saldarDeudasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saldarDeudasToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.saldarDeudasToolStripMenuItem.Text = "Saldar Deudas";
             // 
             // cerrarSesionToolStripMenuItem
             // 
             this.cerrarSesionToolStripMenuItem.Name = "cerrarSesionToolStripMenuItem";
-            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cerrarSesionToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.cerrarSesionToolStripMenuItem.Text = "Cerrar Sesion";
             // 
             // Form1
@@ -335,6 +337,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Sistema de deudas (Registro)";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.sistemadeDeudasBindingSource)).EndInit();
@@ -361,7 +364,6 @@
         private System.Windows.Forms.TextBox txtMonto;
         private System.Windows.Forms.TextBox txtDetalle;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.DataGridView dataGridView1;
         private DeudasDataSet1 deudasDataSet1;
         private System.Windows.Forms.BindingSource sistemadeDeudasBindingSource;
@@ -377,6 +379,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saldarDeudasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesionToolStripMenuItem;
+        public System.Windows.Forms.TextBox txtCedula;
     }
 }
 

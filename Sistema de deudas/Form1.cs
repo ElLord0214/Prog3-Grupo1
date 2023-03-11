@@ -9,22 +9,33 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sistema_de_deudas.Login;
 
 namespace Sistema_de_deudas
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        int id_user;
+        public Form1(int id)
         {
             InitializeComponent();
+            id_user = id;
+        }
+        String name;
+        public  void Nombre(String nombre)
+        {
+            String name1 = nombre;
+            name = name1;
+
+            
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            int id_usuario = id_user;
             SqlConnection connection = new SqlConnection("Server=tcp:srvtransportes.database.windows.net,1433;Initial Catalog=SistemaDeudas;Persist Security Info=False;User ID=transporteMinAdmin;Password=TransporteMinyetypsw012@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30");
-            connection.Open();
-            // TODO: esta línea de código carga datos en la tabla 'deudasDataSet1.Sistema_de_Deudas' Puede moverla o quitarla según sea necesario.
-            String codigo3 = "Select * from Deudas ";
+             connection.Open();
+            String codigo3 = "Select ID,Cedula,Nombre,Apellidos,telefono,Detalles,Monto,Monto_Pagado From Deudas where Id_Usuario='" + id_usuario + "' ";
             SqlCommand comando3 = new SqlCommand(codigo3, connection);
             SqlDataReader reader = comando3.ExecuteReader();
             connection.Close();
@@ -40,7 +51,8 @@ namespace Sistema_de_deudas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            
+
+            int id_usuario = id_user;  
             String Cedula = txtCedula.Text;
             String Nombre = txtNombre.Text;
             String Apellido = txtApellido.Text;
@@ -56,7 +68,7 @@ namespace Sistema_de_deudas
             else { 
             SqlConnection connection = new SqlConnection("Server=tcp:srvtransportes.database.windows.net,1433;Initial Catalog=SistemaDeudas;Persist Security Info=False;User ID=transporteMinAdmin;Password=TransporteMinyetypsw012@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30");
             connection.Open();
-            String codigo = "insert into Deudas(Cedula,Nombre,Apellidos,telefono,Detalles,Monto,Monto_Pagado) values('" + Cedula + "','" + Nombre + "','" + Apellido + "','" + Numero + "','" + Detalles + "','" + Monto + "','" + monto_pagado + "')";
+            String codigo = "insert into Deudas(Cedula,Nombre,Apellidos,telefono,Detalles,Monto,Monto_Pagado,Id_Usuario) values('" + Cedula + "','" + Nombre + "','" + Apellido + "','" + Numero + "','" + Detalles + "','" + Monto + "','" + monto_pagado + "','" + id_usuario + "')";
             SqlCommand comando = new SqlCommand(codigo, connection);
             SqlDataReader reader3 = comando.ExecuteReader();
             txtCedula.Clear();
@@ -69,18 +81,17 @@ namespace Sistema_de_deudas
 
 
             connection.Open();
-            String codigo2 = "Select * From Deudas ";
+            String codigo2 = "Select * From Deudas where Id_Usuario='" + id_usuario+"' ";
             SqlCommand comando2 = new SqlCommand(codigo2, connection);
             SqlDataReader reader = comando2.ExecuteReader();
-            connection.Close();
-
-
-            connection.Open();
+            
+          
             SqlDataAdapter da = new SqlDataAdapter(comando2);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridView1.DataSource = dt;
             connection.Close();
+                
             }
         }
 
@@ -188,19 +199,13 @@ namespace Sistema_de_deudas
             String codigo3 = "Select * from Deudas where ID='" + id + "' ";
             SqlCommand comando3 = new SqlCommand(codigo3, connection);
             SqlDataReader reader = comando3.ExecuteReader();
-            connection.Close();
-            connection.Open();
+            reader.Close();
             SqlDataAdapter da1 = new SqlDataAdapter(comando3);
             DataTable dt1 = new DataTable();
             da1.Fill(dt1);
             dataGridView1.DataSource = dt1;
             connection.Close();
             }
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -211,6 +216,11 @@ namespace Sistema_de_deudas
         private void verDeudasToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Login.Login.mainForm.Show();
         }
     }
 }

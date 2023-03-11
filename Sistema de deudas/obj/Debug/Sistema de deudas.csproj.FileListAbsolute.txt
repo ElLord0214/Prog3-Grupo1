@@ -3,20 +3,37 @@ C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\bin\Debug\Si
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\bin\Debug\Sistema de deudas.pdb
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.csproj.AssemblyReference.cache
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.csproj.SuggestedBindingRedirects.cache
+C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema_de_deudas.Form2.resources
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema_de_deudas.Properties.Resources.resources
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.csproj.GenerateResource.cache
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.csproj.CoreCompileInputs.cache
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.exe
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.pdb
+C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema_de_deudas.Form3.resources
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema_de_deudas.Form1.resources
-C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Prog3-Grupo1\Sistema de deudas\bin\Debug\Sistema de deudas.exe.config
-C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Prog3-Grupo1\Sistema de deudas\bin\Debug\Sistema de deudas.exe
-C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Prog3-Grupo1\Sistema de deudas\bin\Debug\Sistema de deudas.pdb
+C:\Users\Rayner\OneDrive\Documentos\ITLA - 7mo Cuatrimestre\Programación III\Prog3-Grupo1\Sistema de deudas\bin\Debug\Sistema de deudas.exe.config
+C:\Users\Rayner\OneDrive\Documentos\ITLA - 7mo Cuatrimestre\Programación III\Prog3-Grupo1\Sistema de deudas\bin\Debug\Sistema de deudas.exe
+C:\Users\Rayner\OneDrive\Documentos\ITLA - 7mo Cuatrimestre\Programación III\Prog3-Grupo1\Sistema de deudas\bin\Debug\Sistema de deudas.pdb
+C:\Users\Rayner\OneDrive\Documentos\ITLA - 7mo Cuatrimestre\Programación III\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.csproj.AssemblyReference.cache
+C:\Users\Rayner\OneDrive\Documentos\ITLA - 7mo Cuatrimestre\Programación III\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.csproj.SuggestedBindingRedirects.cache
+C:\Users\Rayner\OneDrive\Documentos\ITLA - 7mo Cuatrimestre\Programación III\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema_de_deudas.Form1.resources
+C:\Users\Rayner\OneDrive\Documentos\ITLA - 7mo Cuatrimestre\Programación III\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema_de_deudas.Properties.Resources.resources
+C:\Users\Rayner\OneDrive\Documentos\ITLA - 7mo Cuatrimestre\Programación III\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.csproj.GenerateResource.cache
+C:\Users\Rayner\OneDrive\Documentos\ITLA - 7mo Cuatrimestre\Programación III\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.csproj.CoreCompileInputs.cache
+C:\Users\Rayner\OneDrive\Documentos\ITLA - 7mo Cuatrimestre\Programación III\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.exe
+C:\Users\Rayner\OneDrive\Documentos\ITLA - 7mo Cuatrimestre\Programación III\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.pdb
+C:\Users\Rayner\OneDrive\Documentos\ITLA - 7mo Cuatrimestre\Programación III\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema_de_deudas.Login.Login.resources
+C:\Users\Rayner\OneDrive\Documentos\ITLA - 7mo Cuatrimestre\Programación III\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema_de_deudas.Login.Registro.resources
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.csproj.AssemblyReference.cache
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.csproj.SuggestedBindingRedirects.cache
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema_de_deudas.Form1.resources
+C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema_de_deudas.Login.Registro.resources
+C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema_de_deudas.Login.Login.resources
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema_de_deudas.Properties.Resources.resources
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.csproj.GenerateResource.cache
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.csproj.CoreCompileInputs.cache
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.exe
 C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Prog3-Grupo1\Sistema de deudas\obj\Debug\Sistema de deudas.pdb
+C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Prog3-Grupo1\Sistema de deudas\bin\Debug\Sistema de deudas.exe.config
+C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Prog3-Grupo1\Sistema de deudas\bin\Debug\Sistema de deudas.exe
+C:\Users\Windows 10\Documents\GitHub\Prog3-Grupo1\Prog3-Grupo1\Sistema de deudas\bin\Debug\Sistema de deudas.pdb
