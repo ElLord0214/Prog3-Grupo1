@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sistema_de_deudas.Login;
+using Sistema_de_deudas.Properties;
 
 namespace Sistema_de_deudas
 {
@@ -20,10 +21,13 @@ namespace Sistema_de_deudas
             InitializeComponent();
         }
 
+        private string connString = Settings.Default.TransporteMinyetyConnectionString;
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            SqlConnection connection = new SqlConnection("Server=tcp:srvtransportes.database.windows.net,1433;Initial Catalog=SistemaDeudas;Persist Security Info=False;User ID=transporteMinAdmin;Password=TransporteMinyetypsw012@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30");
+            
+            SqlConnection connection = new SqlConnection(connString);
             connection.Open();
             // TODO: esta línea de código carga datos en la tabla 'deudasDataSet1.Sistema_de_Deudas' Puede moverla o quitarla según sea necesario.
             String codigo3 = "Select * from Deudas ";
@@ -56,7 +60,7 @@ namespace Sistema_de_deudas
                 MessageBox.Show("Debe llenar todos los campos!!!");
             }
             else { 
-            SqlConnection connection = new SqlConnection("Server=tcp:srvtransportes.database.windows.net,1433;Initial Catalog=SistemaDeudas;Persist Security Info=False;User ID=transporteMinAdmin;Password=TransporteMinyetypsw012@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30");
+            SqlConnection connection = new SqlConnection(connString);
             connection.Open();
             String codigo = "insert into Deudas(Cedula,Nombre,Apellidos,telefono,Detalles,Monto,Monto_Pagado) values('" + Cedula + "','" + Nombre + "','" + Apellido + "','" + Numero + "','" + Detalles + "','" + Monto + "','" + monto_pagado + "')";
             SqlCommand comando = new SqlCommand(codigo, connection);
@@ -124,7 +128,7 @@ namespace Sistema_de_deudas
         {
             String id1 = txtiddelete.Text;
             int id = int.Parse(id1);
-            SqlConnection connection = new SqlConnection("Server=tcp:srvtransportes.database.windows.net,1433;Initial Catalog=SistemaDeudas;Persist Security Info=False;User ID=transporteMinAdmin;Password=TransporteMinyetypsw012@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30");
+            SqlConnection connection = new SqlConnection(connString);
             connection.Open();
             // TODO: esta línea de código carga datos en la tabla 'deudasDataSet1.Sistema_de_Deudas' Puede moverla o quitarla según sea necesario.
             String codigo3 = "Delete from Deudas where ID='"+id+"' ";
@@ -184,7 +188,7 @@ namespace Sistema_de_deudas
             
                
 
-            SqlConnection connection = new SqlConnection("Server=tcp:srvtransportes.database.windows.net,1433;Initial Catalog=SistemaDeudas;Persist Security Info=False;User ID=transporteMinAdmin;Password=TransporteMinyetypsw012@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30");
+            SqlConnection connection = new SqlConnection(connString);
             connection.Open();
             // TODO: esta línea de código carga datos en la tabla 'deudasDataSet1.Sistema_de_Deudas' Puede moverla o quitarla según sea necesario.
             String codigo3 = "Select * from Deudas where ID='" + id + "' ";

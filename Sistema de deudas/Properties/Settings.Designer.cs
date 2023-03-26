@@ -12,7 +12,7 @@ namespace Sistema_de_deudas.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.3.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "17.4.0.0")]
     internal sealed partial class Settings : global::System.Configuration.ApplicationSettingsBase {
         
         private static Settings defaultInstance = ((Settings)(global::System.Configuration.ApplicationSettingsBase.Synchronized(new Settings())));
@@ -26,8 +26,8 @@ namespace Sistema_de_deudas.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=srvtransportes.database.windows.net;Initial Catalog=SistemaDeudas;Use" +
-            "r ID=transporteMinAdmin;Password=TransporteMinyetypsw012@")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=RAYNIERPC\\SQLEXPRESS;Initial Catalog=SistemaDeudas;Integrated Securit" +
+            "y=True")]
         public string TransporteMinyetyConnectionString {
             get {
                 return ((string)(this["TransporteMinyetyConnectionString"]));
