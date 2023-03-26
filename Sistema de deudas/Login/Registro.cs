@@ -73,11 +73,11 @@ namespace Sistema_de_deudas.Login
             //es verdadera se accede a la aplicación
             mensaje result = login.RegistrarUsuario(usuario);
 
- 
+
             if (result.valido)
             {
                 MessageBox.Show(result.message, "Acceso exitoso");
-                GesPantanllas.cambiarPantalla(this, new Form1());
+                GesPantanllas.cambiarPantalla(this, new Form1(result.idUsuario));
                 LimpiarInputs();
             }
             else

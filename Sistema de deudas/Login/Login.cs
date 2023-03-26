@@ -35,7 +35,6 @@ namespace Sistema_de_deudas.Login
             Usuario usuario;
             InicioSesion login;
 
-
             if (nUsuario.Text.Trim().Length > 0 
                 && contra.Text.Trim().Length > 0) {
                 //Si los campos no estan vacios, deben tener letras no espacios vacios
@@ -58,7 +57,7 @@ namespace Sistema_de_deudas.Login
             if (result.valido)
             {
                 MessageBox.Show(result.message, "Acceso exitoso");
-                cambiarPantalla(new Form1());
+                cambiarPantalla(new Form1(result.idUsuario));
                 LimpiarInputs();
             }else {
                 MessageBox.Show(result.message, "Error");
