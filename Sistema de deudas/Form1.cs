@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sistema_de_deudas.Login;
+using Sistema_de_deudas.Properties;
 
 namespace Sistema_de_deudas
 {
@@ -33,8 +34,8 @@ namespace Sistema_de_deudas
         private void Form1_Load(object sender, EventArgs e)
         {
             int id_usuario = id_user;
-            SqlConnection connection = new SqlConnection("Server=tcp:srvtransportes.database.windows.net,1433;Initial Catalog=SistemaDeudas;Persist Security Info=False;User ID=transporteMinAdmin;Password=TransporteMinyetypsw012@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30");
-             connection.Open();
+            SqlConnection connection = new SqlConnection(Settings.Default.TransporteMinyetyConnectionString);
+            connection.Open();
             String codigo3 = "Select ID,Cedula,Nombre,Apellidos,telefono,Detalles,Monto,Monto_Pagado From Deudas where Id_Usuario='" + id_usuario + "' ";
             SqlCommand comando3 = new SqlCommand(codigo3, connection);
             SqlDataReader reader = comando3.ExecuteReader();
@@ -66,7 +67,7 @@ namespace Sistema_de_deudas
                 MessageBox.Show("Debe llenar todos los campos!!!");
             }
             else { 
-            SqlConnection connection = new SqlConnection("Server=tcp:srvtransportes.database.windows.net,1433;Initial Catalog=SistemaDeudas;Persist Security Info=False;User ID=transporteMinAdmin;Password=TransporteMinyetypsw012@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30");
+            SqlConnection connection = new SqlConnection(Settings.Default.TransporteMinyetyConnectionString);
             connection.Open();
             String codigo = "insert into Deudas(Cedula,Nombre,Apellidos,telefono,Detalles,Monto,Monto_Pagado,Id_Usuario) values('" + Cedula + "','" + Nombre + "','" + Apellido + "','" + Numero + "','" + Detalles + "','" + Monto + "','" + monto_pagado + "','" + id_usuario + "')";
             SqlCommand comando = new SqlCommand(codigo, connection);
@@ -84,8 +85,8 @@ namespace Sistema_de_deudas
             String codigo2 = "Select * From Deudas where Id_Usuario='" + id_usuario+"' ";
             SqlCommand comando2 = new SqlCommand(codigo2, connection);
             SqlDataReader reader = comando2.ExecuteReader();
-            
-          
+
+            reader.Close();
             SqlDataAdapter da = new SqlDataAdapter(comando2);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -133,7 +134,7 @@ namespace Sistema_de_deudas
         {
             String id1 = txtiddelete.Text;
             int id = int.Parse(id1);
-            SqlConnection connection = new SqlConnection("Server=tcp:srvtransportes.database.windows.net,1433;Initial Catalog=SistemaDeudas;Persist Security Info=False;User ID=transporteMinAdmin;Password=TransporteMinyetypsw012@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30");
+            SqlConnection connection = new SqlConnection(Settings.Default.TransporteMinyetyConnectionString);
             connection.Open();
             // TODO: esta línea de código carga datos en la tabla 'deudasDataSet1.Sistema_de_Deudas' Puede moverla o quitarla según sea necesario.
             String codigo3 = "Delete from Deudas where ID='"+id+"' ";
@@ -193,7 +194,7 @@ namespace Sistema_de_deudas
             
                
 
-            SqlConnection connection = new SqlConnection("Server=tcp:srvtransportes.database.windows.net,1433;Initial Catalog=SistemaDeudas;Persist Security Info=False;User ID=transporteMinAdmin;Password=TransporteMinyetypsw012@;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30");
+            SqlConnection connection = new SqlConnection(Settings.Default.TransporteMinyetyConnectionString);
             connection.Open();
             // TODO: esta línea de código carga datos en la tabla 'deudasDataSet1.Sistema_de_Deudas' Puede moverla o quitarla según sea necesario.
             String codigo3 = "Select * from Deudas where ID='" + id + "' ";
