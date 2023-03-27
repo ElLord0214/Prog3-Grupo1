@@ -12,29 +12,32 @@ using System.Windows.Forms;
 using Sistema_de_deudas.Login;
 using Sistema_de_deudas.Properties;
 
+
 namespace Sistema_de_deudas
 {
     public partial class Form1 : Form
     {
         int id_user;
+        Conexion conn = Conexion.getConexion();
         public Form1(int id)
         {
             InitializeComponent();
             id_user = id;
+
         }
         String name;
-        public  void Nombre(String nombre)
+        public void Nombre(String nombre)
         {
             String name1 = nombre;
             name = name1;
 
-            
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             int id_usuario = id_user;
-            SqlConnection connection = new SqlConnection(Settings.Default.TransporteMinyetyConnectionString);
+            SqlConnection connection = conn.sqlConn;
             connection.Open();
             String codigo3 = "Select ID,Cedula,Nombre,Apellidos,telefono,Detalles,Monto,Monto_Pagado From Deudas where Id_Usuario='" + id_usuario + "' ";
             SqlCommand comando3 = new SqlCommand(codigo3, connection);
@@ -53,7 +56,7 @@ namespace Sistema_de_deudas
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
-            int id_usuario = id_user;  
+            int id_usuario = id_user;
             String Cedula = txtCedula.Text;
             String Nombre = txtNombre.Text;
             String Apellido = txtApellido.Text;
@@ -62,37 +65,41 @@ namespace Sistema_de_deudas
             String Monto = txtMonto.Text;
             float monto_pagado = 0;
 
-            if (Cedula == "" || Nombre == "" || Apellido == "" || Numero =="" || Detalles == "" || Monto=="") {
+            if (Cedula == "" || Nombre == "" || Apellido == "" || Numero == "" || Detalles == "" || Monto == "")
+            {
 
                 MessageBox.Show("Debe llenar todos los campos!!!");
             }
-            else { 
-            SqlConnection connection = new SqlConnection(Settings.Default.TransporteMinyetyConnectionString);
-            connection.Open();
-            String codigo = "insert into Deudas(Cedula,Nombre,Apellidos,telefono,Detalles,Monto,Monto_Pagado,Id_Usuario) values('" + Cedula + "','" + Nombre + "','" + Apellido + "','" + Numero + "','" + Detalles + "','" + Monto + "','" + monto_pagado + "','" + id_usuario + "')";
-            SqlCommand comando = new SqlCommand(codigo, connection);
-            SqlDataReader reader3 = comando.ExecuteReader();
-            txtCedula.Clear();
-            txtNombre.Clear();
-            txtApellido.Clear();
-            txtNumero.Clear();
-            txtDetalle.Clear();
-            txtMonto.Clear();
-            connection.Close();
+            else
+            {
 
 
-            connection.Open();
-            String codigo2 = "Select * From Deudas where Id_Usuario='" + id_usuario+"' ";
-            SqlCommand comando2 = new SqlCommand(codigo2, connection);
-            SqlDataReader reader = comando2.ExecuteReader();
+                String codigo = "insert into Deudas(Cedula,Nombre,Apellidos,telefono,Detalles,Monto,Monto_Pagado,Id_Usuario) values('" + Cedula + "','" + Nombre + "','" + Apellido + "','" + Numero + "','" + Detalles + "','" + Monto + "','" + monto_pagado + "','" + id_usuario + "')";
+                SqlConnection connection = conn.sqlConn;
+                connection.Open();
+                SqlCommand comando = new SqlCommand(codigo, connection);
+                SqlDataReader reader3 = comando.ExecuteReader();
+                txtCedula.Clear();
+                txtNombre.Clear();
+                txtApellido.Clear();
+                txtNumero.Clear();
+                txtDetalle.Clear();
+                txtMonto.Clear();
+                connection.Close();
 
-            reader.Close();
-            SqlDataAdapter da = new SqlDataAdapter(comando2);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataGridView1.DataSource = dt;
-            connection.Close();
-                
+
+                connection.Open();
+                String codigo2 = "Select * From Deudas where Id_Usuario='" + id_usuario + "' ";
+                SqlCommand comando2 = new SqlCommand(codigo2, connection);
+                SqlDataReader reader = comando2.ExecuteReader();
+
+                reader.Close();
+                SqlDataAdapter da = new SqlDataAdapter(comando2);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dataGridView1.DataSource = dt;
+                connection.Close();
+
             }
         }
 
@@ -100,21 +107,21 @@ namespace Sistema_de_deudas
         {
 
             //quitar visivilidad
-            label1.Visible= false;
+            label1.Visible = false;
             label2.Visible = false;
             label3.Visible = false;
             label4.Visible = false;
             label5.Visible = false;
             label6.Visible = false;
             label7.Visible = false;
-    
+
             txtApellido.Visible = false;
             txtCedula.Visible = false;
             txtDetalle.Visible = false;
             txtMonto.Visible = false;
             txtNombre.Visible = false;
             txtNumero.Visible = false;
-       
+
             btnCerrar.Visible = false;
             btnGuardar.Visible = false;
             btnEliminar.Visible = false;
@@ -122,10 +129,10 @@ namespace Sistema_de_deudas
 
             //poner visible
             txtiddelete.Visible = true;
-            label7.Visible= true;
-            btnOK.Visible= true;
-            btndelete.Visible= true;
-            btnBuscar.Visible= true;
+            label7.Visible = true;
+            btnOK.Visible = true;
+            btndelete.Visible = true;
+            btnBuscar.Visible = true;
 
 
         }
@@ -134,10 +141,10 @@ namespace Sistema_de_deudas
         {
             String id1 = txtiddelete.Text;
             int id = int.Parse(id1);
-            SqlConnection connection = new SqlConnection(Settings.Default.TransporteMinyetyConnectionString);
+            SqlConnection connection = conn.sqlConn;
             connection.Open();
             // TODO: esta línea de código carga datos en la tabla 'deudasDataSet1.Sistema_de_Deudas' Puede moverla o quitarla según sea necesario.
-            String codigo3 = "Delete from Deudas where ID='"+id+"' ";
+            String codigo3 = "Delete from Deudas where ID='" + id + "' ";
             SqlCommand comando3 = new SqlCommand(codigo3, connection);
             SqlDataReader reader = comando3.ExecuteReader();
             connection.Close();
@@ -169,8 +176,8 @@ namespace Sistema_de_deudas
 
             btnCerrar.Visible = true;
             btnGuardar.Visible = true;
-            btnEliminar.Visible= true;
-            
+            btnEliminar.Visible = true;
+
 
 
             //poner visible
@@ -178,34 +185,36 @@ namespace Sistema_de_deudas
             label7.Visible = false;
             btnOK.Visible = false;
             btndelete.Visible = false;
-            btnBuscar.Visible= false;
+            btnBuscar.Visible = false;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             String dato = txtiddelete.Text;
-            if (dato == "") {
+            if (dato == "")
+            {
 
                 MessageBox.Show("No hay ningun dato en la tabla!!!");
             }
-            else {
+            else
+            {
                 String id1 = txtiddelete.Text;
                 int id = int.Parse(id1);
-            
-               
 
-            SqlConnection connection = new SqlConnection(Settings.Default.TransporteMinyetyConnectionString);
-            connection.Open();
-            // TODO: esta línea de código carga datos en la tabla 'deudasDataSet1.Sistema_de_Deudas' Puede moverla o quitarla según sea necesario.
-            String codigo3 = "Select * from Deudas where ID='" + id + "' ";
-            SqlCommand comando3 = new SqlCommand(codigo3, connection);
-            SqlDataReader reader = comando3.ExecuteReader();
-            reader.Close();
-            SqlDataAdapter da1 = new SqlDataAdapter(comando3);
-            DataTable dt1 = new DataTable();
-            da1.Fill(dt1);
-            dataGridView1.DataSource = dt1;
-            connection.Close();
+
+
+                SqlConnection connection = conn.sqlConn;
+                connection.Open();
+                // TODO: esta línea de código carga datos en la tabla 'deudasDataSet1.Sistema_de_Deudas' Puede moverla o quitarla según sea necesario.
+                String codigo3 = "Select * from Deudas where ID='" + id + "' ";
+                SqlCommand comando3 = new SqlCommand(codigo3, connection);
+                SqlDataReader reader = comando3.ExecuteReader();
+                reader.Close();
+                SqlDataAdapter da1 = new SqlDataAdapter(comando3);
+                DataTable dt1 = new DataTable();
+                da1.Fill(dt1);
+                dataGridView1.DataSource = dt1;
+                connection.Close();
             }
         }
 
